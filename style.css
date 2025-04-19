@@ -1,145 +1,51 @@
-/* Algemene bodystijl */
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f4f7f6;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
   margin: 0;
   padding: 0;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 }
 
-/* Container voor de inhoud */
-.container {
-  width: 80%;
-  max-width: 800px;
+header {
+  background-color: #3498db;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+#club-info {
   padding: 30px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-/* Hoofd header */
-h1 {
-  color: #333;
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-/* Bestanden uploaden */
-.upload-section {
+#club-details {
   background-color: #ffffff;
-  padding: 20px;
-  margin-bottom: 30px;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-input[type="file"] {
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  margin-right: 10px;
-}
-
-button {
+#ranking-buttons button {
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #3498db;
   color: white;
-  font-size: 1rem;
   border: none;
   border-radius: 5px;
+  margin: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+#ranking-buttons button:hover {
+  background-color: #2980b9;
 }
 
-/* Bestandenlijst */
-.file-list {
-  margin-top: 20px;
-  text-align: left;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  background-color: #f9f9f9;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-li:hover {
-  background-color: #e7f9e7;
-}
-
-/* Reacties */
-.comments-section {
-  background-color: #ffffff;
-  padding: 20px;
+#ranking-container {
   margin-top: 30px;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  resize: vertical;
-}
-
-#commentBtn {
-  padding: 12px 20px;
-  background-color: #f39c12;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#commentBtn:hover {
-  background-color: #e67e22;
-}
-
-/* Reactie lijst */
-#commentsList {
-  padding: 0;
-  list-style-type: none;
-  text-align: left;
-}
-
-#commentsList li {
-  background-color: #f2f2f2;
+footer {
+  background-color: #ffffff;
   padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Animaties bij bestandupload */
-#fileStatus {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 10px;
-  color: #4CAF50;
-  transition: opacity 0.5s ease;
-}
-
-#fileStatus.error {
-  color: #e74c3c;
+  text-align: center;
+  margin-top: 20px;
 }
