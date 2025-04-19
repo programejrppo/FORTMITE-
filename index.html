@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welkom op mijn site</title>
+  <title>Coin Flip Gokspel</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #1f1c2c, #928dab);
-      color: white;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -17,35 +17,105 @@
       text-align: center;
     }
 
-    .card {
+    .container {
       background-color: rgba(255, 255, 255, 0.1);
-      padding: 2rem 3rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      width: 90%;
       max-width: 400px;
     }
 
     h1 {
       margin-bottom: 0.5rem;
+      font-size: 2rem;
     }
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+    .balance {
+      margin: 1rem 0;
+      font-size: 1.5rem;
+      color: #ffd700;
     }
 
-    a {
-      color: #ffcc70;
-      text-decoration: none;
-      font-weight: bold;
+    input {
+      padding: 0.5rem;
+      margin: 1rem 0;
+      width: 80%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .btn {
+      background: #00c9a7;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00b49c;
+    }
+
+    .result {
+      margin-top: 1rem;
+      font-size: 1.2rem;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hey, ik ben [jouw naam]</h1>
-    <p>Welkom op mijn persoonlijke site. Hier deel ik binnenkort projecten, ideeën en wat mij inspireert.</p>
-    <p>Volg me op <a href="https://github.com" target="_blank">GitHub</a></p>
+  <div class="container">
+    <h1>Coin Flip Gokspel</h1>
+    <p class="balance">Saldo: €<span id="balance">1000</span></p>
+
+    <input type="number" id="betAmount" placeholder="Inzet (bijv. 100)" />
+
+    <div>
+      <button class="btn" onclick="flip('kop')">Kop</button>
+      <button class="btn" onclick="flip('munt')">Munt</button>
+    </div>
+
+    <p class="result" id="resultText"></p>
   </div>
+
+  <script>
+    let balance = 1000;
+
+    function flip(choice) {
+      const betInput = document.getElementById('betAmount');
+      const bet = parseInt(betInput.value);
+      const resultText = document.getElementById('resultText');
+
+      if (isNaN(bet) || bet <= 0) {
+        resultText.textContent = "Voer een geldige inzet in.";
+        return;
+      }
+
+      if (bet > balance) {
+        resultText.textContent = "Je hebt niet genoeg saldo.";
+        return;
+      }
+
+      const outcome = Math.random() < 0.5 ? 'kop' : 'munt';
+
+      if (choice === outcome) {
+        balance += bet;
+        resultText.textContent = `Je wint! De munt was ${outcome}. +€${bet}`;
+      } else {
+        balance -= bet;
+        resultText.textContent = `Helaas, de munt was ${outcome}. -€${bet}`;
+      }
+
+      document.getElementById('balance').textContent = balance;
+
+      if (balance <= 0) {
+        resultText.textContent += " Je saldo is op. Game over.";
+      }
+    }
+  </script>
 </body>
 </html>
