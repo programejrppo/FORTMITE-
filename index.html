@@ -1,40 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bestand Uploaden en Reacties</title>
+  <title>Brawl Stars Ranglijst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Upload je bestand en laat een reactie achter!</h1>
 
-    <!-- Bestanden Uploaden -->
-    <div class="upload-section">
-      <input type="file" id="fileInput" />
-      <button id="uploadBtn">Upload Bestand</button>
-      <p id="fileStatus"></p>
+  <header>
+    <h1>Brawl Stars Ranglijst</h1>
+  </header>
+
+  <section id="club-info">
+    <h2>Club Gegevens</h2>
+    <div id="club-details">
+      <p><strong>Club Naam:</strong> <span id="club-name">Laad clubnaam...</span></p>
+      <p><strong>Club Niveau:</strong> <span id="club-level">Laad niveau...</span></p>
+      <p><strong>Aantal Leden:</strong> <span id="club-members">Laad leden...</span></p>
     </div>
 
-    <!-- Lijst van geüploade bestanden -->
-    <div class="file-list">
-      <h2>Geüploade Bestanden:</h2>
-      <ul id="fileList">
-        <!-- Dynamisch gegenereerd -->
-      </ul>
+    <!-- Knoppen voor ranglijst per periode -->
+    <div id="ranking-buttons">
+      <button onclick="loadRanking('daily')">Dagelijks</button>
+      <button onclick="loadRanking('weekly')">Wekelijks</button>
+      <button onclick="loadRanking('monthly')">Maandelijks</button>
     </div>
 
-    <!-- Reacties -->
-    <div class="comments-section">
-      <h2>Reacties:</h2>
-      <textarea id="commentInput" placeholder="Voeg een reactie toe..."></textarea>
-      <button id="commentBtn">Plaats Reactie</button>
-      <ul id="commentsList">
-        <!-- Reacties verschijnen hier -->
-      </ul>
+    <h3>Ranglijst</h3>
+    <div id="ranking-container">
+      <!-- Hier komen de ranglijsten -->
     </div>
-  </div>
+
+    <button onclick="loadClubInfo()">Verkrijg Club Info</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Brawl Stars Ranglijst. Alle rechten voorbehouden.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
